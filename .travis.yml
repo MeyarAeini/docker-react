@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t grandcormoran/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run grandcormoran/docker-react npm run test -- --coverage
